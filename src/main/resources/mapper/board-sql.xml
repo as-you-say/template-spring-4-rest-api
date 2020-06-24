@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "classpath:xsd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.template.api.board.mapper.BoardMapper">
+    <select id="getList" parameterType="Entity" resultType="Entity"></select>
+    <select id="getList" parameterType="Entity" resultType="Entity"></select>
+    <insert id="getList" parameterType="Entity"></insert>
+    <update id="getList" parameterType="Entity"></update>
+    <delete id="getList" parameterType="Entity"></delete>
+</mapper>

@@ -1,8 +1,7 @@
-package org.example.template.security;
+package org.example.template.security.user;
 
 import org.example.template.api.account.mapper.AccountMapper;
 import org.example.template.model.Account;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

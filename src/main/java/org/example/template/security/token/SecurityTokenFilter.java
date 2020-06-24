@@ -1,4 +1,4 @@
-package org.example.template.security;
+package org.example.template.security.token;
 
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 

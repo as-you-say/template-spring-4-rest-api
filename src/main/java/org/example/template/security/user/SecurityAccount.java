@@ -1,4 +1,4 @@
-package org.example.template.security;
+package org.example.template.security.user;
 
 import org.example.template.model.Account;
 import org.springframework.security.core.authority.AuthorityUtils;
