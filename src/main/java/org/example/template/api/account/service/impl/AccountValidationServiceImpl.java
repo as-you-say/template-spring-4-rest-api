@@ -1,4 +1,6 @@
 package org.example.template.api.account.service.impl;
 
-public class AccountValidationServiceImpl {
+import org.example.template.api.account.service.AccountValidationService;
+
+public class AccountValidationServiceImpl implements AccountValidationService {
 }

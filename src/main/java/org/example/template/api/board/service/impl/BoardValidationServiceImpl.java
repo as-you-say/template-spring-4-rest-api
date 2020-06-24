@@ -1,4 +1,6 @@
 package org.example.template.api.board.service.impl;
 
-public class BoardValidationServiceImpl {
+import org.example.template.api.board.service.BoardValidationService;
+
+public class BoardValidationServiceImpl implements BoardValidationService {
 }

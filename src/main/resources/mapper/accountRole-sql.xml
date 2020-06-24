@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "classpath:xsd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.template.api.accountRole.mapper.AccountRoleMapper">
+    <select id="selectAccountRoleList" parameterType="AccountRole" resultType="AccountRole"></select>
+    <select id="selectAccountRoleByAccountId" parameterType="AccountRole" resultType="AccountRole"></select>
+    <insert id="insertAccountRole" parameterType="AccountRole"></insert>
+    <update id="updateAccountRole" parameterType="AccountRole"></update>
+    <delete id="deleteAccountRole" parameterType="AccountRole"></delete>
+</mapper>

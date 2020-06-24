@@ -14,9 +14,9 @@ public class SecurityAccountService implements UserDetailsService {
     AccountMapper accountMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Account account = new Account();
-        account.setAccount_id(id);
+        account.setUsername(username);
 
         Account resultAccount = accountMapper.findAccountById(account);
         return new SecurityAccount(

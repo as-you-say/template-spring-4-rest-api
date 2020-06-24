@@ -13,8 +13,8 @@ public class SecurityAccount extends User {
         boolean accountNonLocked
     ) {
         super(
-            account.getAccount_id(),
-            account.getAccount_password(),
+            account.getUsername(),
+            account.getPassword(),
             enabled,
             accountNonExpired,
             credentialsNonExpired,
