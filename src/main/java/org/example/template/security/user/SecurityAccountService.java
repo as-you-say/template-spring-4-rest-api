@@ -18,7 +18,7 @@ public class SecurityAccountService implements UserDetailsService {
         Account account = new Account();
         account.setUsername(username);
 
-        Account resultAccount = accountMapper.findAccountById(account);
+        Account resultAccount = accountMapper.selectAccountById(account);
         return new SecurityAccount(
             resultAccount,
             true,

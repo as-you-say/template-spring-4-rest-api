@@ -10,8 +10,8 @@ import java.util.List;
 @Getter
 @Setter
 public class Role extends Paging {
-    private String role_id;
-    private String role_name;
+    private Long id;
+    private String name;
 
     private List<AccountRole> accountRoleList = new ArrayList<>();
 }

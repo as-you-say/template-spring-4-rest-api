@@ -8,9 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface AccountRoleMapper {
-    List<AccountRole> selectAccountRoleList(AccountRole accountRole);
-    AccountRole selectAccountRoleByAccountId(AccountRole accountRole);
+    List<AccountRole> selectAccountRoleByAccountId(AccountRole accountRole);
     int insertAccountRole(AccountRole accountRole);
-    int updateAccountRole(AccountRole accountRole);
     int deleteAccountRole(AccountRole accountRole);
 }

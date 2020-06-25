@@ -7,11 +7,11 @@ import org.example.template.model.common.Paging;
 @Getter
 @Setter
 public class Board extends Paging {
-    private String id;
+    private Long id;
     private String title;
     private String content;
-    private Integer hits;
+    private int hits;
 
-    private String account_id;
+    private Long account_id;
     private Account account;
 }

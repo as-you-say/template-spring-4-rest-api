@@ -2,9 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "classpath:xsd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.template.api.role.mapper.RoleMapper">
-    <select id="selectRoleList" parameterType="Role" resultType="Role"></select>
-    <select id="selectRoleById" parameterType="Role" resultType="Role"></select>
-    <insert id="insertRole" parameterType="Role"></insert>
-    <update id="updateRole" parameterType="Role"></update>
-    <delete id="deleteRole" parameterType="Role"></delete>
+
+    <select id="selectRoleList" parameterType="Role" resultType="Role">
+        SELECT
+              id
+            , name
+        FROM
+            role
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="selectRoleById" parameterType="Role" resultType="Role">
+        SELECT
+              id
+            , name
+        FROM
+            role
+        WHERE
+            id = #{id}
+    </select>
+
+    <insert id="insertRole" parameterType="Role">
+        INSERT INTO role (
+            name
+        ) VALUES (
+            #{name}
+        )
+        <selectKey resultType="long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <update id="updateRole" parameterType="Role">
+        UPDATE role
+        SET
+            name = #{name}
+        WHERE
+            id=#{id}
+    </update>
+
+    <delete id="deleteRole" parameterType="Role">
+        DELETE FROM
+            role
+        WHERE
+            id = #{id}
+    </delete>
+
 </mapper>

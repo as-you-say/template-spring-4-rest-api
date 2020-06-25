@@ -10,9 +10,9 @@ import java.util.List;
 @Getter
 @Setter
 public class AccountRole extends Paging {
-    private Integer id;
-    private Integer account_id;
-    private Integer role_id;
+    private Long id;
+    private Long account_id;
+    private Long role_id;
 
     private Account account;
     private Role role;

@@ -2,9 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "classpath:xsd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.template.api.accountRole.mapper.AccountRoleMapper">
-    <select id="selectAccountRoleList" parameterType="AccountRole" resultType="AccountRole"></select>
-    <select id="selectAccountRoleByAccountId" parameterType="AccountRole" resultType="AccountRole"></select>
-    <insert id="insertAccountRole" parameterType="AccountRole"></insert>
-    <update id="updateAccountRole" parameterType="AccountRole"></update>
-    <delete id="deleteAccountRole" parameterType="AccountRole"></delete>
+
+    <select id="selectAccountRoleByAccountId" parameterType="AccountRole" resultType="AccountRole">
+        SELECT
+              a.id
+            , a.account_id
+            , a.role_id
+            , b.username
+            , c.name
+        FROM account_role a JOIN account b ON (a.account_id = b.id)
+                            JOIN role c ON (a.role_id = c.id)
+        WHERE
+            a.account_id = #{account_id}
+    </select>
+
+    <insert id="insertAccountRole" parameterType="AccountRole">
+        INSERT INTO account_role (
+              account_id
+            , role_id
+        ) VALUES (
+              #{account_id}
+            , #{role_id}
+        )
+        <selectKey resultType="long" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <delete id="deleteAccountRole" parameterType="AccountRole">
+        DELETE FROM account_role
+        WHERE id = #{id}
+    </delete>
+
 </mapper>

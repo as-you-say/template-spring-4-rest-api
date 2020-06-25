@@ -21,7 +21,7 @@ public class Account extends Paging {
         String[] array = new String[accountRoleList.size()];
         int size = accountRoleList.size();
         for (int i=0; i<size; i++) {
-            String roleName = accountRoleList.get(i).getRole().getRole_name();
+            String roleName = accountRoleList.get(i).getRole().getName();
             array[i] = roleName;
         }
         return array;
