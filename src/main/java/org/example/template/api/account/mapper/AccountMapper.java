@@ -10,7 +10,7 @@ public interface AccountMapper {
     List<Account> selectAccountList(Account account);
     Account selectAccountById(Account account);
     Account selectAccountByUsername(Account account);
-    void insertAccount(Account account);
+    int insertAccount(Account account);
     int updateAccount(Account account);
     int deleteAccount(Account account);
 }

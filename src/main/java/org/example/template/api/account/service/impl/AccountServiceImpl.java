@@ -3,7 +3,6 @@ package org.example.template.api.account.service.impl;
 import org.example.template.api.account.mapper.AccountMapper;
 import org.example.template.api.account.service.AccountService;
 import org.example.template.model.Account;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,31 +16,37 @@ public class AccountServiceImpl extends AccountValidationServiceImpl implements 
 
     @Override
     public List<Account> selectAccountList(Account account) {
+        this.validateSelectAccountList(account);
         return accountMapper.selectAccountList(account);
     }
 
     @Override
     public Account selectAccountById(Account account) {
-        return null;
+        this.validateSelectAccountById(account);
+        return accountMapper.selectAccountById(account);
     }
 
     @Override
     public Account selectAccountByUsername(Account account) {
-        return null;
+        this.validateSelectAccountByUsername(account);
+        return accountMapper.selectAccountByUsername(account);
     }
 
     @Override
-    public void insertAccount(Account account) {
-
+    public int insertAccount(Account account) {
+        this.validateInsertAccount(account);
+        return accountMapper.insertAccount(account);
     }
 
     @Override
     public int updateAccount(Account account) {
-        return 0;
+        this.validateUpdateAccount(account);
+        return accountMapper.updateAccount(account);
     }
 
     @Override
     public int deleteAccount(Account account) {
-        return 0;
+        this.validateDeleteAccount(account);
+        return accountMapper.deleteAccount(account);
     }
 }
