@@ -2,6 +2,7 @@ package account;
 
 import org.example.template.api.account.mapper.AccountMapper;
 import org.example.template.api.account.service.impl.AccountServiceImpl;
+import org.example.template.exception.account.AccountNotValidParameterException;
 import org.example.template.model.Account;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -27,17 +28,57 @@ public class AccountServiceTest {
     @Autowired
     AccountServiceImpl accountService;
 
-    @Test
-    public void selectAccountList() throws Exception{
-        // 파라미터
+    @Test(expected = AccountNotValidParameterException.class)
+    public void TEST_1_LIMIT_NULL() {
+        // 데이터
         Account account = new Account();
-        account.setLimit(10);
-        account.setOffset(0);
+        account.setOffset(1);
 
-        // 테스트
-        // - NOT NULL
-        List<Account> accounts = accountService.selectAccountList(account);
-        Assert.assertNotNull(accounts);
-        Assert.assertEquals(1, accounts.size());
+        // 작업
+        accountService.selectAccountList(account);
     }
+
+    @Test(expected = AccountNotValidParameterException.class)
+    public void TEST_2_OFFSET_NULL() {
+        // 데이터
+        Account account = new Account();
+        account.setLimit(0);
+
+        // 작업
+        accountService.selectAccountList(account);
+    }
+
+    @Test(expected = AccountNotValidParameterException.class)
+    public void TEST_3_LIMIT_NOT_VALID() {
+        // 데이터
+        Account account = new Account();
+        account.setLimit(-1);
+        account.setOffset(1);
+
+        // 작업
+        accountService.selectAccountList(account);
+    }
+
+    @Test(expected = AccountNotValidParameterException.class)
+    public void TEST_4_OFFSET_NOT_VALID() {
+        // 데이터
+        Account account = new Account();
+        account.setLimit(1);
+        account.setOffset(-1);
+
+        // 작업
+        accountService.selectAccountList(account);
+    }
+
+    @Test(expected = AccountNotValidParameterException.class)
+    public void TEST_5_() {
+        // 데이터
+        Account account = new Account();
+        account.setId(2L);
+
+        // 작업
+        accountService.selectAccountById(account);
+    }
+
+
 }
