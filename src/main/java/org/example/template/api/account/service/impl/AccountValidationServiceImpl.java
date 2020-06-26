@@ -13,7 +13,7 @@ public class AccountValidationServiceImpl implements AccountValidationService {
             throw new AccountNotValidParameterException("Limit is null.");
         }
         if (limit <= 0) {
-            throw new AccountNotValidParameterException("Limit is not valid.");
+            throw new AccountNotValidParameterException("Limit is not valid - limit :" + limit);
         }
 
         Integer offset = account.getOffset();
@@ -21,7 +21,7 @@ public class AccountValidationServiceImpl implements AccountValidationService {
             throw new AccountNotValidParameterException("Offset is null.");
         }
         if (offset <= 0) {
-            throw new AccountNotValidParameterException("Offset is not valid.");
+            throw new AccountNotValidParameterException("Offset is not valid - offset :" + offset);
         }
     }
 
@@ -58,11 +58,25 @@ public class AccountValidationServiceImpl implements AccountValidationService {
 
     @Override
     public void validateUpdateAccount(Account account) {
+        String username = account.getUsername();
+        boolean usernameIsNull = username == null;
+        if (usernameIsNull) {
+            throw new AccountNotValidParameterException("Username is null.");
+        }
 
+        String password = account.getPassword();
+        boolean passwordIsNull = password == null;
+        if (passwordIsNull) {
+            throw new AccountNotValidParameterException("Password is null.");
+        }
     }
 
     @Override
     public void validateDeleteAccount(Account account) {
-
+        boolean idIsNull = account.getId() == null;
+        if (idIsNull) {
+            throw new AccountNotValidParameterException("Id is null.");
+        }
     }
+
 }
