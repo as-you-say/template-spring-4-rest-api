@@ -20,7 +20,7 @@ public class AccountValidationServiceImpl implements AccountValidationService {
         if (offset == null) {
             throw new AccountNotValidParameterException("Offset is null.");
         }
-        if (offset <= 0) {
+        if (offset < 0) {
             throw new AccountNotValidParameterException("Offset is not valid - offset :" + offset);
         }
     }

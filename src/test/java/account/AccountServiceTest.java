@@ -70,15 +70,4 @@ public class AccountServiceTest {
         accountService.selectAccountList(account);
     }
 
-    @Test(expected = AccountNotValidParameterException.class)
-    public void TEST_5_() {
-        // 데이터
-        Account account = new Account();
-        account.setId(2L);
-
-        // 작업
-        accountService.selectAccountById(account);
-    }
-
-
 }
